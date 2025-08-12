@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className='h-10 w-full bg-white flex text-center items-center justify-center gap-2 font-normal shadow-[0px_-1px_1px_rgba(0,0,0,0.10)]'>
+    <footer className='h-10 w-full bg-white flex text-center items-center justify-center gap-2 text-[14px] font-normal shadow-[0px_-1px_1px_rgba(0,0,0,0.10)]'>
       <p>&copy;2025 - Alfeus Rudyanta</p>
       <p>•</p>
       <a

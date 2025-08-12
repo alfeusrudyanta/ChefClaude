@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ClaudeRecipe from '../component/ClaudRecipe';
 import IngredientsList from '../component/IngredientsList';
 import getRecipeFromMistral from '../api/AIChat';
@@ -7,6 +7,13 @@ const Home: React.FC = () => {
   const [ingredients, setIngredients] = React.useState<string[]>([]);
   const [recipe, setRecipe] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
+  const ingredientRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (ingredientRef.current) {
+      ingredientRef.current.focus();
+    }
+  }, []);
 
   async function getRecipe() {
     setLoading(true);
@@ -53,6 +60,7 @@ const Home: React.FC = () => {
           aria-label='Add ingredient'
           name='ingredient'
           className='px-2 py-1 w-full border rounded-[6px] bg-white'
+          ref={ingredientRef}
         />
         <button className='px-4 py-2 bg-black text-white rounded-[6px] cursor-pointer'>
           Add&nbsp;ingredient
