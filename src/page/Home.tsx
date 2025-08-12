@@ -37,9 +37,6 @@ const Home: React.FC = () => {
   function deleteIngredient(ingredient: string) {
     setIngredients((prevIngredients) => {
       const index = prevIngredients.indexOf(ingredient);
-      if (index === -1) {
-        return prevIngredients;
-      }
       return [
         ...prevIngredients.slice(0, index),
         ...prevIngredients.slice(index + 1),
