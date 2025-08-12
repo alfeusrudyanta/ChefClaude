@@ -34,6 +34,19 @@ const Home: React.FC = () => {
     }
   }
 
+  function deleteIngredient(ingredient: string) {
+    setIngredients((prevIngredients) => {
+      const index = prevIngredients.indexOf(ingredient);
+      if (index === -1) {
+        return prevIngredients;
+      }
+      return [
+        ...prevIngredients.slice(0, index),
+        ...prevIngredients.slice(index + 1),
+      ];
+    });
+  }
+
   return (
     <main className='px-4 py-6 md:py-8 mx-auto max-w-[750px] flex flex-col gap-6 md:gap-8'>
       <form action={addIngredient} className='flex gap-1 md:gap-2'>
@@ -57,7 +70,11 @@ const Home: React.FC = () => {
       </form>
 
       {ingredients.length > 0 && (
-        <IngredientsList ingredientList={ingredients} getRecipe={getRecipe} />
+        <IngredientsList
+          ingredientList={ingredients}
+          getRecipe={getRecipe}
+          deleteIngredient={deleteIngredient}
+        />
       )}
 
       {loading && <p className='text-gray-500'>Generating recipe...</p>}

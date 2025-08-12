@@ -3,11 +3,13 @@ import React from 'react';
 type IngredientsListProps = {
   ingredientList: string[];
   getRecipe: () => void;
+  deleteIngredient: (id: string) => void;
 };
 
 const IngredientsList: React.FC<IngredientsListProps> = ({
   ingredientList,
   getRecipe,
+  deleteIngredient,
 }) => {
   return (
     <section className='flex flex-col gap-2 md:gap-3'>
@@ -19,7 +21,11 @@ const IngredientsList: React.FC<IngredientsListProps> = ({
         aria-live='polite'
       >
         {ingredientList.map((ingredient) => (
-          <li key={ingredient}>{ingredient}</li>
+          <div onClick={() => deleteIngredient(ingredient)}>
+            <li className='cursor-pointer' key={ingredient}>
+              {ingredient}
+            </li>
+          </div>
         ))}
       </ul>
 
