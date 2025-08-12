@@ -34,7 +34,10 @@ const Home: React.FC = () => {
         (ingredient) => ingredient.toLowerCase() === newIngredient.toLowerCase()
       )
     ) {
-      setIngredients((prevIngredients) => [...prevIngredients, newIngredient]);
+      setIngredients((prevIngredients) => [
+        ...prevIngredients,
+        newIngredient[0].toUpperCase() + newIngredient.toLowerCase().slice(1),
+      ]);
     }
   }
 
