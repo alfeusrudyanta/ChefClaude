@@ -8,6 +8,7 @@ const Home: React.FC = () => {
   const [recipe, setRecipe] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
   const ingredientRef = useRef<HTMLInputElement>(null);
+  const recipeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (ingredientRef.current) {
@@ -22,6 +23,7 @@ const Home: React.FC = () => {
       setRecipe(recommendedRecipe);
     }
     setLoading(false);
+    recipeRef.current?.scrollIntoView();
   }
 
   function resetIngredient() {
@@ -84,7 +86,7 @@ const Home: React.FC = () => {
 
       {loading && <p className='text-gray-500'>Generating recipe...</p>}
 
-      {recipe && <ClaudeRecipe recipe={recipe} />}
+      {recipe && <ClaudeRecipe recipe={recipe} ref={recipeRef} />}
     </main>
   );
 };
