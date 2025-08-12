@@ -33,8 +33,10 @@ Users can add ingredients they have on hand, and the app instantly suggests crea
 
 ## 🔗 Live Demo & Code
 
-- **Live Demo:** <a href="https://chef-claude-navy.vercel.app/" target="_blank">View Demo</a>
-- **Source Code:** <a href="https://github.com/alfeusrudyanta/ChefClaude" target="_blank">GitHub Repository</a>
+- **Live Demo:** https://your-live-demo-url.com
+- **Source Code:** https://github.com/alfeusrudyanta/ChefClaude
+
+_Tip: open links in a new tab with **Ctrl+Click** (Windows/Linux) or **Cmd+Click** (Mac)._
 
 ---
 
