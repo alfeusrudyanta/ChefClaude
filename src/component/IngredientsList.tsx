@@ -22,11 +22,13 @@ const IngredientsList: React.FC<IngredientsListProps> = ({
           aria-live='polite'
         >
           {ingredientList.map((ingredient, index) => (
-            <div onClick={() => deleteIngredient(index)}>
-              <li className='cursor-pointer' key={ingredient}>
-                {ingredient}
-              </li>
-            </div>
+            <li
+              onClick={() => deleteIngredient(index)}
+              className='cursor-pointer hover:text-red-800'
+              key={ingredient}
+            >
+              {ingredient}
+            </li>
           ))}
         </ul>
 
