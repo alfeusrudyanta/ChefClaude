@@ -34,14 +34,11 @@ const Home: React.FC = () => {
     }
   }
 
-  function deleteIngredient(ingredient: string) {
-    setIngredients((prevIngredients) => {
-      const index = prevIngredients.indexOf(ingredient);
-      return [
-        ...prevIngredients.slice(0, index),
-        ...prevIngredients.slice(index + 1),
-      ];
-    });
+  function deleteIngredient(index: number) {
+    setIngredients((prevIngredients) => [
+      ...prevIngredients.slice(0, index),
+      ...prevIngredients.slice(index + 1),
+    ]);
   }
 
   return (

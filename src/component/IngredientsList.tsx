@@ -3,7 +3,7 @@ import React from 'react';
 type IngredientsListProps = {
   ingredientList: string[];
   getRecipe: () => void;
-  deleteIngredient: (id: string) => void;
+  deleteIngredient: (id: number) => void;
 };
 
 const IngredientsList: React.FC<IngredientsListProps> = ({
@@ -20,8 +20,8 @@ const IngredientsList: React.FC<IngredientsListProps> = ({
         className='mb-4 list-disc text-[16px] md:text-[18px] text-gray-700'
         aria-live='polite'
       >
-        {ingredientList.map((ingredient) => (
-          <div onClick={() => deleteIngredient(ingredient)}>
+        {ingredientList.map((ingredient, index) => (
+          <div onClick={() => deleteIngredient(index)}>
             <li className='cursor-pointer' key={ingredient}>
               {ingredient}
             </li>
