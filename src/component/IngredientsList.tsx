@@ -16,18 +16,25 @@ const IngredientsList: React.FC<IngredientsListProps> = ({
       <h2 className='font-bold text-[24px] mdtext-[30px] leading-[32px] md:leading-[38px]'>
         Ingredients on hand:
       </h2>
-      <ul
-        className='mb-4 list-disc text-[16px] md:text-[18px] text-gray-700'
-        aria-live='polite'
-      >
-        {ingredientList.map((ingredient, index) => (
-          <div onClick={() => deleteIngredient(index)}>
-            <li className='cursor-pointer' key={ingredient}>
-              {ingredient}
-            </li>
-          </div>
-        ))}
-      </ul>
+      <div className='flex flex-col gap-0 mb-4 md:mb-6'>
+        <ul
+          className='mb-4 list-disc text-[16px] md:text-[18px] text-gray-700'
+          aria-live='polite'
+        >
+          {ingredientList.map((ingredient, index) => (
+            <div onClick={() => deleteIngredient(index)}>
+              <li className='cursor-pointer' key={ingredient}>
+                {ingredient}
+              </li>
+            </div>
+          ))}
+        </ul>
+
+        <p className='text-[12px] md:text-[14px] text-gray-700 italic'>
+          <span className='font-bold'>*</span>Click the ingredient to delete the
+          ingredient from the list
+        </p>
+      </div>
 
       {ingredientList.length > 3 && (
         <div className='bg-stone-200 py-6 px-6 rounded-[6px] flex justify-between items-center gap-4'>

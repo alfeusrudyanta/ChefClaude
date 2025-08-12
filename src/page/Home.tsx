@@ -7,6 +7,8 @@ const Home: React.FC = () => {
   const [ingredients, setIngredients] = React.useState<string[]>([]);
   const [recipe, setRecipe] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
+  const [showPrevRecommendation, setShowPrevRecommendation] =
+    useState<boolean>(false);
 
   async function getRecipe() {
     setLoading(true);
@@ -15,10 +17,12 @@ const Home: React.FC = () => {
       setRecipe(recommendedRecipe);
     }
     setLoading(false);
+    setShowPrevRecommendation(false);
   }
 
   function resetIngredient() {
     setIngredients([]);
+    setShowPrevRecommendation(true);
   }
 
   function addIngredient(formData: FormData) {
@@ -73,11 +77,12 @@ const Home: React.FC = () => {
 
       {loading && <p className='text-gray-500'>Generating recipe...</p>}
 
-      {recipe && ingredients.length < 4 && (
+      {showPrevRecommendation && recipe && (
         <h2 className='font-semibold text-[24px] md:text-[30px] leading-[32px] md:leading-[48px]'>
           Previous Recommendation:
         </h2>
       )}
+
       {recipe && <ClaudeRecipe recipe={recipe} />}
     </main>
   );
