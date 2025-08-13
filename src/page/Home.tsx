@@ -16,6 +16,12 @@ const Home: React.FC = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (recipe && recipeRef.current !== null) {
+      recipeRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [recipe]);
+
   async function getRecipe() {
     setLoading(true);
     const recommendedRecipe = await getRecipeFromMistral(ingredients);
@@ -23,7 +29,6 @@ const Home: React.FC = () => {
       setRecipe(recommendedRecipe);
     }
     setLoading(false);
-    recipeRef.current?.scrollIntoView();
   }
 
   function resetIngredient() {
